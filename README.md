@@ -174,12 +174,12 @@ Everything else in regular rotation, by category.
 
 ### NeuralVault (private)
 
-24 personal skills for my own second-brain workflow. No names, no code, just what they do:
-- A web search that saves results directly into the vault, tagged and routed automatically
-- One-step video ingestion: point it at a link, it saves a structured note
-- Automatic cross-linking between related notes as new ones get added
-- Daily and weekly digests summarizing what changed and what needs attention
-- A vault health check that finds orphaned or contradictory notes
+24 personal skills for my own second-brain workflow. Named here, not published:
+- `nv-web-search`: web search that saves results straight into the vault, tagged and routed automatically
+- `nv-video-ingest`: point it at a video link, it saves a structured note
+- `nv-cross-linker`: links related notes together as new ones get added
+- `nv-daily-brief` and `nv-weekly-review`: digests of what changed and what needs attention
+- `nv-vault-audit`: finds orphaned or contradictory notes
 
 ## Other Stuff
 
@@ -202,16 +202,27 @@ Not skills, but the rest of the setup that makes the skills above actually work.
 
 ## How I Run Claude
 
-Workflow patterns, not skills or tools. Kept high-level on purpose.
+Workflow patterns, not skills or tools, kept high-level on purpose.
 
-1. **Plan in one stable session, execute in parallel fresh ones.** For large projects: one main session drafts the implementation plan and splits it into independent features. Each feature then runs in its own separate session (not a sub-agent inside the planning session) executing in parallel. More token-efficient than nested sub-agents, and avoids context rot from one session accumulating a huge history.
-2. **Isolate parallel work in git worktrees.** Each parallel session gets its own worktree so simultaneous execution never collides on the same files. Merge back once each is independently verified.
-3. **Never let a session grade its own work.** A separate, fresh pass (new session or agent with no stake in the original work) checks the result, rather than trusting the session that did the work to self-report accurately.
-4. **Turn messy asks into structured prompts before executing anything.** A quick rewrite pass (goal, context, constraints, done-when) before acting, especially for anything that spans multiple files or sessions.
-5. **Serialize the one heavy step across parallel sessions.** When several sessions might each trigger something expensive (a full build, a big compile), gate that specific step through a single lock so N sessions don't all hit it simultaneously and choke the machine.
-6. **Verify facts manually before trusting a cached or tool-reported number.** For anything high-stakes (a count, a claim about what exists), a direct check beats trusting whatever a tool or skill already reported.
-7. **Subagent tiering.** Match model cost/capability to task type instead of running everything on one model. Haiku-tier agents handle reading documents and straightforward web scraping. Sonnet takes over for scraping or research that needs real judgment or handles more complexity. Coding subagents run on Sonnet or Fable depending on the task. A manual practice I follow when dispatching work, not enforced by a single config file.
-8. **Judge whether parallel subagents are actually worth it.** Spinning up a dozen subagents for a one-line fix burns more tokens coordinating them than the fix itself costs. Before fanning out, weigh whether the task is genuinely parallelizable and big enough to justify the overhead, versus just doing it directly in one pass.
+**Large tasks**
+
+A big project starts in one session: that session plans the work and splits it into independent pieces. Each piece then goes to its own fresh session running in parallel, each in its own git worktree so nothing collides on the same files. This is cheaper in tokens than nesting a dozen sub-agents inside one conversation, and it sidesteps the quality drop that comes from a single session dragging on too long.
+
+If several of those sessions are going to hit something expensive at the same time, a full build, for example, that one step runs through a shared lock so they queue instead of fighting over the same resources.
+
+Before fanning out into parallel sessions or sub-agents at all, it's worth asking whether the task is actually big enough to justify the coordination cost. A one-line fix doesn't need a swarm behind it.
+
+**Trust, but check**
+
+A session doesn't get to grade its own work. Something separate, with no stake in the outcome, checks the result instead of taking a self-report at face value. The same applies to facts: a count or a claim about what exists gets checked directly rather than trusted from a cache or a tool's last answer.
+
+**Prompts**
+
+Messy asks get rewritten first, goal, context, constraints, done-when, before anything actually runs. This matters most for anything that touches multiple files or spans more than one session.
+
+**Model choice**
+
+Different models for different jobs instead of one model for everything. Reading documents and straightforward web scraping go to Haiku. Anything that needs real judgment, harder research or more complex scraping, goes to Sonnet. Coding work runs on Sonnet or Fable depending on what the task needs. This is a habit I follow, not something enforced by a config file.
 
 ## How to install
 
