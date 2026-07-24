@@ -28,8 +28,8 @@ bundle_skills() {
   case "$(normalize "$1")" in
     prompt-input)
       echo "braindump braindump-auto superbraindump dictation-garble-catcher" ;;
-    verification-and-trust-discipline|verification-trust-discipline|verification-trust|trust-discipline)
-      echo "verify-dont-trust worktree-task-pack-verification" ;;
+    multi-session-task-discipline|multi-session-task|verification-and-trust-discipline|verification-trust-discipline|verification-trust|trust-discipline)
+      echo "large-task-session-split worktree-task-pack-verification verify-dont-trust" ;;
     repo-and-secret-hygiene|repo-secret-hygiene|secret-hygiene)
       echo "pre-push-secret-scan full-account-security-audit public-repo-leak-retraction repo-hygiene" ;;
     windows-environment-ops|windows-ops)
@@ -49,7 +49,7 @@ list_bundles() {
   cat <<'EOF'
 Available bundles:
   prompt-input                        braindump, braindump-auto, superbraindump, dictation-garble-catcher
-  verification-and-trust-discipline   verify-dont-trust, worktree-task-pack-verification
+  multi-session-task-discipline        large-task-session-split, worktree-task-pack-verification, verify-dont-trust
   repo-and-secret-hygiene             pre-push-secret-scan, full-account-security-audit, public-repo-leak-retraction, repo-hygiene
   windows-environment-ops             zombie-process-sweep, windows-shell-tool-selection, windows-process-restart
   project-content-safety              project-design-doc, safe-section-deletion

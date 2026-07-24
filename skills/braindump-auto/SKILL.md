@@ -57,7 +57,7 @@ Show the refined prompt and any assumptions made to fill gaps, in the same breat
 >
 > Running this now.
 
-Then immediately execute the refined prompt in the current session, as if it were the user's own message. Follow all normal workflows and skills the refined prompt would trigger, including this project's own safety rules (explicit-permission and prohibited-action categories still apply; auto-accept only removes the confirm-the-prompt step, it does not pre-authorize sends, purchases, deletions, or other gated actions the refined prompt might trigger).
+Then immediately execute the refined prompt in the current session, as if it were the user's own message. Follow all normal workflows and skills the refined prompt would trigger, including this project's own safety rules (explicit-permission and prohibited-action categories still apply; auto-accept only removes the confirm-the-prompt step, it does not pre-authorize sends, purchases, deletions, or other gated actions the refined prompt might trigger). If execution involves committing or pushing to a repo, verify the save actually landed before reporting it done.
 
 ## Rules
 

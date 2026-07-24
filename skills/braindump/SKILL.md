@@ -1,6 +1,6 @@
 ---
 name: braindump
-description: "The prompt fixer: turns a messy, unstructured brain dump into a clear, well-structured prompt, confirms it, then executes it, so the user never has to prompt engineer by hand. Auto-triggers on any raw, rambling, stream-of-consciousness message, even without the /braindump command, as long as it's a single-topic ask. Also triggers on explicit invocation via /braindump, or requests to 'fix this prompt', 'clean this up', or 'prompt engineer this for me'. For messages that bundle multiple asks, run long, carry many constraints, span multiple files/repos/systems, or involve high ambiguity or high-stakes/hard-to-reverse work, use the superbraindump skill instead."
+description: "The prompt fixer: turns a messy, unstructured brain dump into a clear, well-structured prompt, confirms it, then executes it, so the user never has to prompt engineer by hand. Auto-triggers on any raw, rambling, run-on, or disorganized message, even without the /braindump command: multiple clauses, self-corrections, filler, or unclear phrasing are enough on their own, single-topic or not. When genuinely unsure whether a message qualifies, fire rather than skip; Step 1 already routes to superbraindump if the complexity signals show up once you're reading it. Also triggers on explicit invocation via /braindump, or requests to 'fix this prompt', 'clean this up', or 'prompt engineer this for me'. For messages that clearly bundle multiple unrelated asks, run very long, carry many constraints, span multiple files/repos/systems, or involve high ambiguity or high-stakes/hard-to-reverse work, use the superbraindump skill instead."
 ---
 
 # Braindump
@@ -16,10 +16,10 @@ Takes everything after `/braindump`, however messy, rambling, or disorganized, a
 | | `braindump` (this skill) | [`superbraindump`](../superbraindump/SKILL.md) |
 |---|---|---|
 | Use for | A single, contained ask, messy but simple | Multiple bundled asks, large/cross-cutting scope, heavy ambiguity, high stakes |
-| Fires on | `/braindump`, any raw single-topic ramble, or "fix this prompt" / "clean this up" | `/superbraindump`, or a ramble showing the complexity signals in the left column |
+| Fires on | `/braindump`, any raw ramble that doesn't clearly need the heavier tier, or "fix this prompt" / "clean this up" | `/superbraindump`, or a ramble showing the complexity signals in the left column |
 | Template | Goal / Context / Constraints / Done when | Same, plus Output format and Edge cases |
 
-If a dump turns out to match the right column partway through Step 1, stop and switch to `superbraindump` instead of continuing here.
+Default to firing here when a message is messy but doesn't obviously need the heavier tier. If a dump turns out to match the right column partway through Step 1, stop and switch to `superbraindump` instead of continuing here.
 
 ## Usage
 
@@ -64,7 +64,7 @@ Then ask for a go-ahead: the user replies "go", tweaks the prompt, or corrects a
 
 ### Step 4: Execute on approval
 
-When the user approves, execute the refined prompt immediately in the current session as if it were their message. Follow all normal workflows and skills that the refined prompt would trigger.
+When the user approves, execute the refined prompt immediately in the current session as if it were their message. Follow all normal workflows and skills that the refined prompt would trigger. If execution involves committing or pushing to a repo, verify the save actually landed (check `git status`, confirm the push reached the remote) before reporting it done, instead of assuming the command succeeded.
 
 ## Rules
 

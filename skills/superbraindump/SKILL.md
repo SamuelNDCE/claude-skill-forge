@@ -82,7 +82,7 @@ Then ask for a go-ahead: the user replies "go", tweaks the prompt, reorders the 
 
 ### Step 4: Execute on approval
 
-When the user approves, execute the refined prompt(s) immediately in the current session, in the confirmed order, as if they were the user's own message. Follow all normal workflows and skills each refined prompt would trigger.
+When the user approves, execute the refined prompt(s) immediately in the current session, in the confirmed order, as if they were the user's own message. Follow all normal workflows and skills each refined prompt would trigger. If execution involves committing or pushing to a repo, verify the save actually landed (check `git status`, confirm the push reached the remote) before reporting it done, instead of assuming the command succeeded.
 
 ## Rules
 
