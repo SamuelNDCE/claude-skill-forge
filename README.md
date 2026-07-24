@@ -6,7 +6,7 @@ Each skill is self-contained: a `SKILL.md` with YAML frontmatter (`name`, `descr
 
 ## The skills
 
-15 skills, grouped by what they're for. Skills in the same group are meant to be used together or build directly on each other — that relationship is called out in each group.
+19 skills, grouped by what they're for. Skills in the same group are meant to be used together or build directly on each other — that relationship is called out in each group.
 
 ### Prompt Input (the original three, plus one new companion)
 
@@ -42,6 +42,18 @@ Three stages of the same concern — prevent, periodically audit, and remediate 
 - [`project-design-doc`](skills/project-design-doc/SKILL.md) - **new.** Maintains a persistent per-project design spec (colors, timing conventions, layout patterns) and follows it automatically on every future design request for that project, instead of re-deriving or re-asking each time.
 - [`safe-section-deletion`](skills/safe-section-deletion/SKILL.md) - **new.** Before deleting any HTML section, anchor, or exported symbol, grep the whole codebase for references first. The markup/id-level sibling of call-graph impact analysis.
 
+### Skill Library Maintenance
+
+Both operate on any skills collection that's grown large enough to drift from its own claims.
+
+- [`skill-overlap-audit`](skills/skill-overlap-audit/SKILL.md) - **new.** Finds near-duplicate or overlapping skills in a library (redundant descriptions, orphaned duplicates of a canonical skill) and recommends what to merge or retire.
+- [`repo-index-drift-check`](skills/repo-index-drift-check/SKILL.md) - **new.** Audits a hub/index repo's claimed counts and descriptions against what the linked repos actually contain right now, instead of trusting the index's own stated numbers.
+
+### Personal Workflow Ops
+
+- [`personal-dashboard-style`](skills/personal-dashboard-style/SKILL.md) - **new.** Applies a fixed dark-theme HTML report convention (colors, save path, auto-open, always-paired summary) instead of re-deriving a visual style per report.
+- [`discord-todo-ops`](skills/discord-todo-ops/SKILL.md) - **new.** Wraps a reaction-based, Discord-backed shared todo list (script-driven add/edit, Discord-native accept/complete) into one skill instead of remembering three separate invocations.
+
 Plus 24 personal NeuralVault (`nv-*`) skills built for my own second-brain workflow — hidden for now, coming soon.
 
 ## How to use a skill
@@ -65,7 +77,7 @@ Restart Claude Code (or start a new session) after adding skills - the skill lis
 
 ## Part of a larger collection
 
-See [toolkit](https://github.com/SamuelNDCE/toolkit) for the full index of published tools, and [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library) for the full 287-skill collection — five of the fifteen skills here (`braindump`, `braindump-auto`, `superbraindump`, `windows-process-restart`, `repo-hygiene`) are also featured there; the other ten are exclusive to this repo for now.
+See [toolkit](https://github.com/SamuelNDCE/toolkit) for the full index of published tools, and [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library) for the full 287-skill collection — five of the nineteen skills here (`braindump`, `braindump-auto`, `superbraindump`, `windows-process-restart`, `repo-hygiene`) are also featured there; the other fourteen are exclusive to this repo for now.
 
 ## License
 
