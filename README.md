@@ -18,7 +18,7 @@ cp -r claude-workbench/skills/braindump /path/to/your/project/.claude/skills/
 
 It has two sibling tiers for different situations: [`braindump-auto`](skills/braindump-auto/SKILL.md) (skip the confirmation step) and [`superbraindump`](skills/superbraindump/SKILL.md) (for big, tangled, multi-part dumps). Both listed with the rest of the Prompt Input bundle below.
 
-## The skills
+## My Skills
 
 20 skills in 7 bundles. Every bundle groups skills that are meant to be installed and used together, and each one below explains why, with a single command to install the whole bundle from a fresh clone. Want just one skill out of a bundle? Clone the repo and copy that one skill's folder yourself, same as any other skill here.
 
@@ -123,22 +123,22 @@ Plus 24 personal NeuralVault (`nv-*`) skills built for my own second-brain workf
 
 ## Skills I Use Most
 
-The skills above are the ones I wrote from scratch. This is a tier list of the rest: not written by me, but installed and reached for constantly. Each one links back to where it actually lives (mostly [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library), a few to their original external source).
+A ranking across everything, mine and everyone else's. Sections below cover the ones not written by me in more depth; anything pulled up here from one of those sections is tagged with where it actually lives.
 
 ### Tier 1: Top 10
 
-The ten I'd keep if I had to drop everything else. Where one comes from a different section below, its source is tagged in parentheses.
+The ten I'd keep if I had to drop everything else.
 
 1. [`karpathy-guidelines`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/karpathy-guidelines/SKILL.md): behavioral guardrails against over-engineering and unrequested scope, built on Andrej Karpathy's original LLM-coding pitfalls
-2. [`gitnexus-impact-analysis`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-impact-analysis/SKILL.md): blast-radius check before editing any symbol
-3. [`para-second-brain`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/para-second-brain/SKILL.md): PARA-method second-brain organization
-4. [`git-workflow`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/git-workflow/SKILL.md): branching strategies, commit conventions, merge vs. rebase
-5. [`verification-loop`](https://github.com/affaan-m/everything-claude-code): verify a change actually works before calling it done
-6. `nv-agent-brief` (NeuralVault): pulls all relevant prior context from the vault before starting any non-trivial task
-7. `nv-web-search` (NeuralVault): web search that saves results straight into the vault, tagged and routed automatically
-8. [`verification-before-completion`](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md) (superpowers): confirms work actually meets requirements before calling it done
-9. [`using-git-worktrees`](https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md) (superpowers): isolated workspaces for feature work before executing a plan
-10. [`dispatching-parallel-agents`](https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md) (superpowers): dispatches independent tasks with no shared state to run in parallel
+2. [`braindump`](skills/braindump/SKILL.md) (mine): the single most-used skill in the whole setup, see the top of this README
+3. [`gitnexus-impact-analysis`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-impact-analysis/SKILL.md): blast-radius check before editing any symbol
+4. [`para-second-brain`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/para-second-brain/SKILL.md): PARA-method second-brain organization
+5. [`git-workflow`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/git-workflow/SKILL.md): branching strategies, commit conventions, merge vs. rebase
+6. [`verification-loop`](https://github.com/affaan-m/everything-claude-code): verify a change actually works before calling it done
+7. [`verify-dont-trust`](skills/verify-dont-trust/SKILL.md) (mine): the checklist behind most of the verification habits on this whole list
+8. `nv-agent-brief` (NeuralVault): pulls all relevant prior context from the vault before starting any non-trivial task
+9. `nv-web-search` (NeuralVault): web search that saves results straight into the vault, tagged and routed automatically
+10. [`verification-before-completion`](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md) (superpowers): confirms work actually meets requirements before calling it done
 
 ### Tier 2: The Next 25
 
