@@ -1,6 +1,6 @@
-# Claude Skill Forge
+# Claude Workbench
 
-The [Claude Code Skills](https://docs.claude.com/en/docs/claude-code/skills) I've actually written from scratch, in one place. Separate from [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library), which is the big curated collection of skills I use but mostly didn't author myself. This repo is just mine.
+What I actually use to build with Claude Code: skills first, then everything else. The skills below split into two kinds: [Claude Code Skills](https://docs.claude.com/en/docs/claude-code/skills) I've written entirely from scratch (separate from [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library), the big curated collection I use but mostly didn't author myself), and the wider set of skills, MCP servers, CLI tools, and conventions that make up my day-to-day setup.
 
 Each skill is self-contained: a `SKILL.md` with YAML frontmatter (`name`, `description`) plus any supporting files it needs. Claude Code auto-discovers skills and decides when to invoke one based on its description.
 
@@ -11,9 +11,9 @@ Each skill is self-contained: a `SKILL.md` with YAML frontmatter (`name`, `descr
 If you only take one thing from this whole repo, take this one. It's the skill I use constantly, on nearly every task. Dump whatever's on your mind, as messy and unstructured as it comes out, and it turns that into a clean, structured prompt, shows it to you for a quick sanity check, then runs it. Fires automatically on a raw ramble, no slash command required, or explicitly via `/braindump`.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
+git clone https://github.com/SamuelNDCE/claude-workbench.git
 mkdir -p /path/to/your/project/.claude/skills
-cp -r claude-skill-forge/skills/braindump /path/to/your/project/.claude/skills/
+cp -r claude-workbench/skills/braindump /path/to/your/project/.claude/skills/
 ```
 
 It has two sibling tiers for different situations: [`braindump-auto`](skills/braindump-auto/SKILL.md) (skip the confirmation step) and [`superbraindump`](skills/superbraindump/SKILL.md) (for big, tangled, multi-part dumps). Both listed with the rest of the Prompt Input bundle below.
@@ -27,8 +27,8 @@ It has two sibling tiers for different situations: [`braindump-auto`](skills/bra
 What it's for: turning a raw, messy prompt into something worth acting on, and catching a specific known failure mode (voice-dictation mishears) along the way. These four are designed as one system, not four separate tools. The three brain-dump tiers share one job (raw dump to clean prompt) at increasing levels of rigor, and the catcher rides shotgun on all three.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "prompt input"
 ```
 
@@ -42,8 +42,8 @@ cd claude-skill-forge
 What it's for: never taking a self-report at face value. One general rule, then its specific application to the highest-stakes place it applies.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "verification and trust discipline"
 ```
 
@@ -55,8 +55,8 @@ cd claude-skill-forge
 What it's for: three stages of the same concern, meant to be layered. Prevent on every push, audit everything periodically, and clean up thoroughly if something still gets through.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "repo and secret hygiene"
 ```
 
@@ -70,8 +70,8 @@ cd claude-skill-forge
 What it's for: the two most common ways a Windows Claude Code session goes sideways. A zombie process nobody stopped, and a shell-syntax trap between Bash and PowerShell.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "windows environment ops"
 ```
 
@@ -84,8 +84,8 @@ cd claude-skill-forge
 What it's for: two different angles on not shipping a design or content change that quietly breaks something else.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "project content safety"
 ```
 
@@ -97,8 +97,8 @@ cd claude-skill-forge
 What it's for: keeping a large skill collection, or any repo that indexes other repos, honest about what it actually contains.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "skill library maintenance"
 ```
 
@@ -110,8 +110,8 @@ cd claude-skill-forge
 What it's for: two personal conventions worth automating rather than re-deriving each time.
 
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "personal workflow ops"
 ```
 
@@ -120,34 +120,113 @@ cd claude-skill-forge
 
 Plus 24 personal NeuralVault (`nv-*`) skills built for my own second-brain workflow. Hidden for now, coming soon.
 
+## Skills I Use Most
+
+The skills above are the ones I wrote from scratch. These are the rest of my most-used skills, day to day, across every project, not written by me but installed and reached for constantly. Each one links back to where it actually lives (mostly [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library), a couple to their original external source).
+
+**Code intelligence (GitNexus family)**, run before touching almost any symbol:
+- [`gitnexus-impact-analysis`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-impact-analysis/SKILL.md): blast-radius check before editing any symbol
+- [`gitnexus-exploring`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-exploring/SKILL.md): trace execution flows and architecture in unfamiliar code
+- [`gitnexus-debugging`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-debugging/SKILL.md): trace a bug to its root cause via the call graph
+- [`gitnexus-refactoring`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-refactoring/SKILL.md): safe rename/extract/split with call-graph awareness
+- [`gitnexus-cli`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-cli/SKILL.md): index/status/clean/wiki CLI commands
+- [`gitnexus-guide`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-guide/SKILL.md): GitNexus's own tools, resources, and schema reference
+- [`codebase-onboarding`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/codebase-onboarding/SKILL.md): structured onboarding guide with architecture map
+- [`architecture-decision-records`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/architecture-decision-records/SKILL.md): capture architectural decisions as structured ADRs
+- [`repo-scan`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/repo-scan/SKILL.md): cross-stack source audit, classifies every file
+- [`hexagonal-architecture`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/hexagonal-architecture/SKILL.md): Ports & Adapters design with clear domain boundaries
+
+**Workflow and meta**, the discipline layer around everything else:
+- [`karpathy-guidelines`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/karpathy-guidelines/SKILL.md): behavioral guardrails against over-engineering and unrequested scope
+- [`verification-loop`](https://github.com/affaan-m/everything-claude-code): verify a change actually works before calling it done
+- [`tdd-workflow`](https://github.com/affaan-m/everything-claude-code): disciplined test-first workflow instead of ad hoc test-after
+- [`prompt-optimizer`](https://github.com/affaan-m/everything-claude-code): tightens and evaluates prompts for reuse
+- [`git-workflow`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/git-workflow/SKILL.md): branching strategies, commit conventions, merge vs. rebase
+- [`security-scan`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/security-review/security-scan/SKILL.md): scan a `.claude/` config for vulnerabilities and misconfigurations
+- [`terminal-ops`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/devops-infra/terminal-ops/SKILL.md): evidence-first repo execution workflow
+- [`para-second-brain`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/para-second-brain/SKILL.md): PARA-method second-brain organization
+- [`deep-research`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/deep-research/SKILL.md): multi-source research with cited reports
+- [`knowledge-ops`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/knowledge-ops/SKILL.md): knowledge base management, ingestion, and sync
+- [`qmd`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/qmd/SKILL.md): search local markdown knowledge bases and wikis
+
+**Dev patterns**, reached for on nearly every build/test/deploy task:
+- [`database-migrations`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/devops-infra/database-migrations/SKILL.md): schema changes, rollbacks, zero-downtime deployments
+- [`docker-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/devops-infra/docker-patterns/SKILL.md): Docker/Compose patterns for local dev and multi-service orchestration
+- [`deployment-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/deployment-patterns/SKILL.md): CI/CD, containerization, health checks, rollback strategies
+- [`e2e-testing`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/e2e-testing/SKILL.md): Playwright E2E patterns, Page Object Model, CI/CD integration
+- [`error-handling`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/error-handling/SKILL.md): typed errors, retries, and circuit breakers
+- [`api-design`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/api-design/SKILL.md): REST resource naming, status codes, pagination, versioning
+- [`api-connector-builder`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/api-connector-builder/SKILL.md): build a new API connector matching existing patterns
+- [`mcp-server-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/agent-ai-engineering/mcp-server-patterns/SKILL.md): build MCP servers with the Node/TypeScript SDK
+- [`vite-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/vite-patterns/SKILL.md): Vite config, plugins, HMR, build optimization
+- [`rust-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/rust-patterns/SKILL.md): idiomatic Rust ownership, error handling, concurrency
+- [`rust-testing`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/rust-testing/SKILL.md): unit, integration, async, property-based Rust testing
+- [`python-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/python-patterns/SKILL.md): Pythonic idioms, PEP 8, type hints
+- [`python-testing`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/language-frameworks/python-testing/SKILL.md): pytest, fixtures, mocking, parametrization
+
+**Frontend and design**, for the UI-heavy half of the work:
+- [`frontend-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/frontend-patterns/SKILL.md): React/Next.js state management and performance
+- [`frontend-a11y`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/frontend-a11y/SKILL.md): accessibility patterns, ARIA, forms, keyboard nav
+- [`accessibility`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/accessibility/SKILL.md): WCAG 2.2 AA inclusive design for web and native
+- [`design-system`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/design-system/SKILL.md): generate or audit design systems, review styling PRs
+- [`motion-foundations`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/motion-foundations/SKILL.md): motion tokens, spring presets, SSR-safe animation
+- [`motion-patterns`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/motion-patterns/SKILL.md): production-ready animation patterns for buttons and modals
+- [`motion-advanced`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/motion-advanced/SKILL.md): drag and drop, gestures, SVG path drawing
+- [`motion-ui`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/motion-ui/SKILL.md): production-ready UI motion system for React/Next.js
+- [`make-interfaces-feel-better`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/make-interfaces-feel-better/SKILL.md): concrete polish details, spacing, motion, hit areas
+- [`click-path-audit`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/click-path-audit/SKILL.md): trace every button's state changes to find silent cancel-out bugs
+- [`browser-qa`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/browser-qa/SKILL.md): automate visual testing and UI verification after deploys
+- [`dashboard-builder`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/dashboard-builder/SKILL.md): build monitoring dashboards that answer real operator questions
+
+Plus the same 24 personal NeuralVault (`nv-*`) skills mentioned above. I use these daily too, just not published anywhere.
+
+## Other Stuff
+
+Not skills, but the rest of the setup that makes the skills above actually work.
+
+**MCP servers:**
+- **GitNexus**: call-graph-aware code intelligence, the backbone of the code-intelligence skills above
+- **GitHub**: repo, PR, and issue operations without shelling out to `gh` for everything
+- **Supabase**: database inspection and migrations for Postgres-backed projects
+
+**CLI tools:**
+- `gh` (GitHub CLI): repo creation, PR management, API calls
+- `git-filter-repo`: history rewrites, see [`public-repo-leak-retraction`](skills/public-repo-leak-retraction/SKILL.md) above
+- `qmd`: local markdown knowledge-base search, also listed as a skill above
+- agent-browser: browser automation for verifying UI changes actually work
+
+**Standing conventions:**
+- Dark navy/teal/purple HTML report style for anything data-heavy, see [`personal-dashboard-style`](skills/personal-dashboard-style/SKILL.md) above
+- A Discord-based shared team todo list and activity log, see [`discord-todo-ops`](skills/discord-todo-ops/SKILL.md) above
+
 ## How to install
 
 **A single skill.** Clone the repo, then copy the one folder you want:
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
+git clone https://github.com/SamuelNDCE/claude-workbench.git
 mkdir -p /path/to/your/project/.claude/skills
-cp -r claude-skill-forge/skills/<skill-name> /path/to/your/project/.claude/skills/
+cp -r claude-workbench/skills/<skill-name> /path/to/your/project/.claude/skills/
 ```
 
 **A whole bundle by name.** Type the bundle name (spaces, hyphens, and `&`/`and` are all interchangeable, case doesn't matter):
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cd claude-skill-forge
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cd claude-workbench
 ./scripts/install-group.sh "<bundle name>" [destination]
 ```
 Run `./scripts/install-group.sh` with no arguments to print the full list of bundle names.
 
 **The whole repo:**
 ```bash
-git clone https://github.com/SamuelNDCE/claude-skill-forge.git
-cp -r claude-skill-forge/skills/* /path/to/your/project/.claude/skills/
+git clone https://github.com/SamuelNDCE/claude-workbench.git
+cp -r claude-workbench/skills/* /path/to/your/project/.claude/skills/
 ```
 
 Restart Claude Code (or start a new session) after adding skills. The skill list loads at session start.
 
 ## Part of a larger collection
 
-See [toolkit](https://github.com/SamuelNDCE/toolkit) for the full index of published tools, and [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library) for the full 287-skill collection. Five of the nineteen skills here (`braindump`, `braindump-auto`, `superbraindump`, `windows-process-restart`, `repo-hygiene`) are also featured there. The other fourteen are exclusive to this repo for now.
+See [toolkit](https://github.com/SamuelNDCE/toolkit) for the full index of published tools, and [claude-super-skill-library](https://github.com/SamuelNDCE/claude-super-skill-library) for the full 287-skill collection. Five of the nineteen skills I wrote from scratch (`braindump`, `braindump-auto`, `superbraindump`, `windows-process-restart`, `repo-hygiene`) are also featured there. The other fourteen, plus everything in the "Skills I Use Most" and "Other Stuff" sections, are specific to this repo.
 
 ## License
 
