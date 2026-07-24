@@ -109,4 +109,4 @@ When the user approves, execute the refined prompt(s) immediately in the current
 
 ## See also
 
-[`braindump`](../braindump/SKILL.md) — the fast, everyday tier for simple messy asks.
+[`braindump`](../braindump/SKILL.md): the fast, everyday tier for simple messy asks.

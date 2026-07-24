@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# install-group.sh — install every skill in one named bundle at once.
+# install-group.sh: install every skill in one named bundle at once.
 #
 # Usage:
 #   ./scripts/install-group.sh "<bundle name>" [destination]
@@ -81,4 +81,4 @@ for s in $SKILLS; do
 done
 
 echo ""
-echo "Bundle '$1' installed to $DEST — restart Claude Code (or start a new session) to load them."
+echo "Bundle '$1' installed to $DEST. Restart Claude Code (or start a new session) to load them."

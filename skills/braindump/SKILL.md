@@ -89,4 +89,4 @@ When the user approves, execute the refined prompt immediately in the current se
 
 ## See also
 
-[`superbraindump`](../superbraindump/SKILL.md) — the complex/high-stakes tier. See the comparison table above for which one fires when.
+[`superbraindump`](../superbraindump/SKILL.md): the complex/high-stakes tier. See the comparison table above for which one fires when.

@@ -5,7 +5,7 @@ description: "The prompt fixer, auto-accept variant: turns a messy brain dump in
 
 # Braindump Auto
 
-> **The prompt fixer, no-wait tier.** Same as `braindump`: messy input in, clean prompt out. The only difference is it doesn't stop to ask "go?" — it extracts, rewrites, and runs.
+> **The prompt fixer, no-wait tier.** Same as `braindump`: messy input in, clean prompt out. The only difference is it doesn't stop to ask "go?", it extracts, rewrites, and runs.
 
 ## What this does
 
@@ -84,5 +84,5 @@ Then immediately execute the refined prompt in the current session, as if it wer
 
 ## See also
 
-[`braindump`](../braindump/SKILL.md) — the same tool with a confirmation step before it runs.
-[`superbraindump`](../superbraindump/SKILL.md) — the complex/high-stakes tier; keep its approval gate even when using auto-accept habits elsewhere.
+[`braindump`](../braindump/SKILL.md): the same tool with a confirmation step before it runs.
+[`superbraindump`](../superbraindump/SKILL.md): the complex/high-stakes tier; keep its approval gate even when using auto-accept habits elsewhere.

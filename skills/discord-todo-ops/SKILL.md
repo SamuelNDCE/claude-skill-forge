@@ -9,7 +9,7 @@ A shared todo list where the list itself lives in a Discord channel, backed by s
 
 ## The three operations
 
-**Add a task** (from any working directory — the scripts load their own config):
+**Add a task** (from any working directory, the scripts load their own config):
 ```bash
 node path/to/discord-bot/add-todo.js "task text" --by "Claude (<project name>)"
 ```
@@ -18,15 +18,15 @@ node path/to/discord-bot/add-todo.js "task text" --by "Claude (<project name>)"
 ```bash
 node path/to/discord-bot/edit-todo.js "task query" "new task text"
 ```
-If the task was already accepted by someone, editing it should also push an update notification to that person's progress channel — don't silently change accepted work without surfacing the change to whoever claimed it.
+If the task was already accepted by someone, editing it should also push an update notification to that person's progress channel. Don't silently change accepted work without surfacing the change to whoever claimed it.
 
-**Complete a task** — this is a human action, not a script: a person reacts ✅ on the Discord post itself. Don't try to mark something complete programmatically; that decision belongs to whoever's actually doing the work.
+**Complete a task**: this is a human action, not a script: a person reacts ✅ on the Discord post itself. Don't try to mark something complete programmatically; that decision belongs to whoever's actually doing the work.
 
-**Claim a task** — also a human/Discord-native action via a slash command in the channel (e.g. `/todo accept task:"..."`), not a script.
+**Claim a task**: also a human/Discord-native action via a slash command in the channel (e.g. `/todo accept task:"..."`), not a script.
 
 ## Why this split matters
 
-Adding and editing are mechanical (any agent can do them on someone's behalf), but accepting and completing represent a real commitment from a specific person — keeping those as native Discord actions (reaction, slash command) instead of scriptable ones means the audit trail of "who actually claimed and finished what" stays honest and can't be silently spoofed by an agent.
+Adding and editing are mechanical (any agent can do them on someone's behalf), but accepting and completing represent a real commitment from a specific person. Keeping those as native Discord actions (reaction, slash command) instead of scriptable ones means the audit trail of "who actually claimed and finished what" stays honest and can't be silently spoofed by an agent.
 
 ## One-off scripts against the same bot
 
