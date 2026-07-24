@@ -129,7 +129,7 @@ The skills above are the ones I wrote from scratch. This is a tier list of the r
 
 The five I'd keep if I had to drop everything else.
 
-1. [`karpathy-guidelines`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/karpathy-guidelines/SKILL.md): behavioral guardrails against over-engineering and unrequested scope
+1. [`karpathy-guidelines`](https://x.com/karpathy/status/2015883857489522876): behavioral guardrails against over-engineering and unrequested scope, built on Andrej Karpathy's original LLM-coding pitfalls
 2. [`gitnexus-impact-analysis`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-impact-analysis/SKILL.md): blast-radius check before editing any symbol
 3. [`para-second-brain`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/para-second-brain/SKILL.md): PARA-method second-brain organization
 4. [`git-workflow`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/git-workflow/SKILL.md): branching strategies, commit conventions, merge vs. rebase
@@ -171,6 +171,25 @@ Everything else in regular rotation, by category.
 - [`make-interfaces-feel-better`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/make-interfaces-feel-better/SKILL.md): concrete polish details, spacing, motion, hit areas
 - [`click-path-audit`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/click-path-audit/SKILL.md): trace every button's state changes to find silent cancel-out bugs
 - [`browser-qa`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/frontend-design-ui/browser-qa/SKILL.md): automate visual testing and UI verification after deploys
+
+### Superpowers plugin
+
+14 skills bundled with the [Superpowers](https://github.com/obra/superpowers) plugin, all in regular use, each labeled `(superpowers)` since they come from that plugin rather than the library above:
+
+- [`using-superpowers`](https://github.com/obra/superpowers/blob/main/skills/using-superpowers/SKILL.md) (superpowers): how skills get discovered and invoked in the first place
+- [`brainstorming`](https://github.com/obra/superpowers/blob/main/skills/brainstorming/SKILL.md) (superpowers): explores intent and requirements before any creative or building work
+- [`writing-plans`](https://github.com/obra/superpowers/blob/main/skills/writing-plans/SKILL.md) (superpowers): turns a spec into a multi-step plan before touching code
+- [`executing-plans`](https://github.com/obra/superpowers/blob/main/skills/executing-plans/SKILL.md) (superpowers): runs a written plan in a separate session with review checkpoints
+- [`dispatching-parallel-agents`](https://github.com/obra/superpowers/blob/main/skills/dispatching-parallel-agents/SKILL.md) (superpowers): dispatches independent tasks with no shared state to run in parallel
+- [`subagent-driven-development`](https://github.com/obra/superpowers/blob/main/skills/subagent-driven-development/SKILL.md) (superpowers): executes independent plan tasks within the current session
+- [`using-git-worktrees`](https://github.com/obra/superpowers/blob/main/skills/using-git-worktrees/SKILL.md) (superpowers): isolated workspaces for feature work before executing a plan
+- [`systematic-debugging`](https://github.com/obra/superpowers/blob/main/skills/systematic-debugging/SKILL.md) (superpowers): a structured approach before proposing any fix
+- [`test-driven-development`](https://github.com/obra/superpowers/blob/main/skills/test-driven-development/SKILL.md) (superpowers): strict test-first discipline
+- [`verification-before-completion`](https://github.com/obra/superpowers/blob/main/skills/verification-before-completion/SKILL.md) (superpowers): confirms work actually meets requirements before calling it done
+- [`requesting-code-review`](https://github.com/obra/superpowers/blob/main/skills/requesting-code-review/SKILL.md) (superpowers): verifies work meets requirements before merging
+- [`receiving-code-review`](https://github.com/obra/superpowers/blob/main/skills/receiving-code-review/SKILL.md) (superpowers): processes incoming review feedback
+- [`finishing-a-development-branch`](https://github.com/obra/superpowers/blob/main/skills/finishing-a-development-branch/SKILL.md) (superpowers): structured options for merging, opening a PR, or cleaning up
+- [`writing-skills`](https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md) (superpowers): the meta-skill for building new skills, the one behind most of this repo
 
 ### NeuralVault (private)
 
