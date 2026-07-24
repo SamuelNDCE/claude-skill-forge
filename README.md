@@ -129,7 +129,7 @@ The skills above are the ones I wrote from scratch. This is a tier list of the r
 
 The five I'd keep if I had to drop everything else.
 
-1. [`karpathy-guidelines`](https://x.com/karpathy/status/2015883857489522876): behavioral guardrails against over-engineering and unrequested scope, built on Andrej Karpathy's original LLM-coding pitfalls
+1. [`karpathy-guidelines`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/karpathy-guidelines/SKILL.md): behavioral guardrails against over-engineering and unrequested scope, built on Andrej Karpathy's original LLM-coding pitfalls
 2. [`gitnexus-impact-analysis`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/code-intelligence/gitnexus/gitnexus-impact-analysis/SKILL.md): blast-radius check before editing any symbol
 3. [`para-second-brain`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/knowledge-vault-ops/para-second-brain/SKILL.md): PARA-method second-brain organization
 4. [`git-workflow`](https://github.com/SamuelNDCE/claude-super-skill-library/blob/main/skills/misc-utilities/git-workflow/SKILL.md): branching strategies, commit conventions, merge vs. rebase
