@@ -199,6 +199,18 @@ Not skills, but the rest of the setup that makes the skills above actually work.
 - Dark navy/teal/purple HTML report style for anything data-heavy, see [`personal-dashboard-style`](skills/personal-dashboard-style/SKILL.md) above
 - A Discord-based shared team todo list and activity log, see [`discord-todo-ops`](skills/discord-todo-ops/SKILL.md) above
 
+## How I Run Claude
+
+Workflow patterns, not skills or tools. Kept high-level on purpose.
+
+1. **Plan in one stable session, execute in parallel fresh ones.** For large projects: one main session drafts the implementation plan and splits it into independent features. Each feature then runs in its own separate session (not a sub-agent inside the planning session) executing in parallel. More token-efficient than nested sub-agents, and avoids context rot from one session accumulating a huge history.
+2. **Isolate parallel work in git worktrees.** Each parallel session gets its own worktree so simultaneous execution never collides on the same files. Merge back once each is independently verified.
+3. **Never let a session grade its own work.** A separate, fresh pass (new session or agent with no stake in the original work) checks the result, rather than trusting the session that did the work to self-report accurately.
+4. **Turn messy asks into structured prompts before executing anything.** A quick rewrite pass (goal, context, constraints, done-when) before acting, especially for anything that spans multiple files or sessions.
+5. **Serialize the one heavy step across parallel sessions.** When several sessions might each trigger something expensive (a full build, a big compile), gate that specific step through a single lock so N sessions don't all hit it simultaneously and choke the machine.
+6. **Verify facts manually before trusting a cached or tool-reported number.** For anything high-stakes (a count, a claim about what exists), a direct check beats trusting whatever a tool or skill already reported.
+7. **Subagent tiering.** Match model cost/capability to task type instead of running everything on one model. Haiku-tier agents handle reading documents and straightforward web scraping. Sonnet takes over for scraping or research that needs real judgment or handles more complexity. Coding subagents run on Sonnet or Fable depending on the task. A manual practice I follow when dispatching work, not enforced by a single config file.
+
 ## How to install
 
 **A single skill.** Clone the repo, then copy the one folder you want:
