@@ -313,6 +313,14 @@ Skills, hooks, and a notes vault form one loop. Something learned in a session g
 
 The important half is the discipline, not the tooling: write it down at the moment of discovery, not at the end of the task. Anything that would cost real time to rediscover, a path, a working command, a gotcha, a decision, goes in immediately.
 
+Where it gets written matters as much as whether it does. Entries route by topic into separate logs rather than piling into one file, and a session that spanned three subjects gets split across three logs instead of dumped into whichever one felt closest. A single growing log is easy to write and useless to search later.
+
+**Pace is a spoken setting**
+
+Slow and sequential by default. One thing at a time, no fanning out unless the work genuinely calls for it. Saying "fast" flips it: sub-agents get reached for more readily, though they still have to earn it rather than getting spawned over something trivial. It resets to slow after each task, so speed is something opted into deliberately per task, never a mode left running by accident.
+
+Worth having as an explicit switch because parallelism carries a coordination cost that stays invisible until it bites. Making "go faster" a thing said out loud keeps that cost a decision instead of a default.
+
 **Large tasks**
 
 A big project starts in one session: that session plans the work and splits it into independent pieces. Each piece then goes to its own fresh session running in parallel, each in its own git worktree so nothing collides on the same files. This is cheaper in tokens than nesting a dozen sub-agents inside one conversation, and it sidesteps the quality drop that comes from a single session dragging on too long.
@@ -325,6 +333,12 @@ Before fanning out into parallel sessions or sub-agents at all, it's worth askin
 
 A session doesn't get to grade its own work. Something separate, with no stake in the outcome, checks the result instead of taking a self-report at face value. The same applies to facts: a count or a claim about what exists gets checked directly rather than trusted from a cache or a tool's last answer.
 
+**Check the tool before trusting the tool**
+
+A code index, a cache, or a graph database will answer confidently while being months out of date, and usually nothing in the output says so. So the staleness check comes before the question: how far behind the index is, when it was last built. If it's stale, the choice is rebuild it or say plainly that the analysis was skipped. What doesn't happen is presenting an old answer as a current one.
+
+The same instinct applies to the mechanical steps everyone assumes are safe. A scripted commit can mangle its own message through a quoting bug and still exit successfully, so the message gets read back afterwards. A clean `git status` can mean an automation already committed, not that nothing changed. Neither of those failures announces itself.
+
 **Prompts**
 
 Messy asks get rewritten first, goal, context, constraints, done-when, before anything actually runs. This matters most for anything that touches multiple files or spans more than one session.
@@ -335,11 +349,36 @@ Different models for different jobs, picked at dispatch rather than set once and
 
 Two things make this work in practice. The tier gets announced out loud at dispatch, so a bad choice is visible and easy to spot-check instead of buried inside a tool call. And a large fan-out runs in waves, with each agent writing its result to its own file, so after every wave I can check which files actually exist rather than assuming every agent succeeded. A missing file is a failure to retry, never a silent "done."
 
+**Wasting less time per task**
+
+Small habits, and they compound harder than any one of them suggests:
+
+- Independent reads, greps, and status checks go out in a single batch instead of one at a time.
+- Anything expected to take more than about twenty seconds runs in the background, and the context for the next step gets read while it runs.
+- Never sleep-poll. Wait for the completion signal rather than looping on a timer, and make one-off scripts exit cleanly instead of leaving a timer open behind them.
+- Never re-run a slow command whose output is already sitting in the conversation. If it will be needed again later, it goes to a scratch file.
+- Verification of one step can run in the background while the next step starts, as long as nothing builds on a result that hasn't been verified yet. Writes stay strictly sequential.
+- Every background process gets stopped when its task is done, rather than whenever someone notices it still running.
+
+**Render it, don't print it**
+
+Anything visual or data-heavy, a report, a comparison, more than roughly ten rows, becomes a self-contained HTML file in a fixed house style instead of a wall of terminal text. There's always a short text summary alongside it, so nothing important depends on actually opening the file.
+
+Two browsers doing two jobs, kept deliberately separate. Anything meant for me to look at opens in my real browser. Anything the agent needs for verification, screenshots, DOM checks, runs in a separate automation browser. Collapsing the two means either I get a screenshot when I wanted a page, or an agent starts driving the browser I'm logged into everything on.
+
+**Keep a written profile of how you want to be worked with**
+
+Separate from any project rules, I keep a note describing how I like to be worked with: how much detail I want, how I prefer things explained, what I've reacted badly to before. It gets read before anything substantial and updated whenever something new gets learned about how I work.
+
+This sounds soft and isn't. Preferences that live only inside a conversation die with that conversation, and the next session re-learns them by getting it wrong first.
+
+**Three strikes and it becomes a skill**
+
+Once the same kind of task has been done three times across sessions, it stops being something I explain each time and becomes a skill. Not a note, a skill, so the next session picks it up on its own without me remembering to mention it. A running file of repeat patterns makes the third occurrence visible, rather than leaving it to whether I happen to notice.
+
 **Where skills actually live**
 
-Worth understanding before you trust that a skill is running. A skill can exist on disk, be committed, and still never load. Skills come from several places at once (project, user, plugins), activation is often a symlink rather than the file itself, and a settings file can switch any of them off individually. A skill that exists but is disabled counts as not created, so after writing one I confirm it actually loads instead of assuming.
-
-The habit that goes with it: once I've done the same kind of task three times across sessions, it becomes a skill. Not a note, a skill, so the next session picks it up automatically without me remembering to mention it.
+Worth understanding before you trust that a skill is running at all. A skill can exist on disk, be committed, and still never load. Skills come from several places at once (project, user, plugins), activation is often a symlink rather than the file itself, and a settings file can switch any of them off individually. A skill that exists but is disabled counts as not created, so after writing one I confirm it actually loads instead of assuming it does.
 
 ## How to install
 
