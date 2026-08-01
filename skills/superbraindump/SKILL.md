@@ -99,7 +99,7 @@ When the user approves, execute the refined prompt(s) immediately in the current
 
 **Refined prompt:**
 > **Goal:** Rebrand and feature the `braindump` skill across its published repos as "the prompt fixer," split its advanced prompt-writing tier into a new `superbraindump` skill, and make both auto-invocable by Claude based on dump complexity.
-> **Context:** Skill is published in `agent-skills-library`, `claude-super-skill-library`, and mirrored locally in `~/.claude/skills/`. `/braindump` must stay the base command name.
+> **Context:** Skill is published to the public skill library and mirrored locally in `~/.claude/skills/`. `/braindump` must stay the base command name.
 > **Constraints:** Keep `braindump` fast and light; put the richer template only in `superbraindump`. Both need auto-trigger descriptions plus explicit slash commands.
 > **Output format:** Updated `SKILL.md` for both skills (new + existing), a "Featured Skills" section in both READMEs, a one-line mention in the `toolkit` README.
 > **Edge cases / watch-outs:** Don't let auto-triggering fire on ordinary well-formed requests, only on genuine rambles. Don't let the featured section balloon past a handful of skills.

@@ -11,7 +11,7 @@ Two standing rules:
 1. **New repos are private by default.** Never create a public repo unless the user explicitly says so.
 2. **Clean up proven junk, never guess at junk.** Only auto-delete files that are *provably* garbage (exact known bug signature). Everything else (regenerable caches, anything with real content) gets flagged with a size/count for the user to decide, never deleted automatically.
 
-This skill exists because of a recurring problem in `C:\Users\Futur\Documents\AiWorkspace\Claude`: 315 untracked garbage-named files had piled up from a known Git-Bash bug (see Rule 2), and separately a Rust `target/` build cache alone was eating 4.76GB. See `wiki/Mistakes & Fixes/2026-07-11-repo-hygiene-stray-file-sweep.md`.
+This skill exists because of a recurring problem in a large multi-project agent repo: 315 untracked garbage-named files had piled up from a known Git-Bash bug (see Rule 2), and separately a Rust `target/` build cache alone was eating 4.76GB. See `wiki/Mistakes & Fixes/2026-07-11-repo-hygiene-stray-file-sweep.md`.
 
 ## Rule 1: New repos default to private
 
