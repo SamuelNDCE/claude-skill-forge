@@ -6,6 +6,34 @@ If you're here for the parts that changed my output the most, they're near the b
 
 Each skill is self-contained: a `SKILL.md` with YAML frontmatter (`name`, `description`) plus any supporting files it needs. Claude Code auto-discovers skills and decides when to invoke one based on its description.
 
+## Contents
+
+- [Most Useful Skill](#most-useful-skill)
+- [My Skills](#my-skills)
+  - [Prompt Input](#bundle-prompt-input)
+  - [Multi-Session Task Discipline](#bundle-multi-session-task-discipline)
+  - [Repo & Secret Hygiene](#bundle-repo--secret-hygiene)
+  - [Windows Environment Ops](#bundle-windows-environment-ops)
+  - [Project Content Safety](#bundle-project-content-safety)
+  - [Skill Library Maintenance](#bundle-skill-library-maintenance)
+  - [Personal Workflow Ops](#bundle-personal-workflow-ops)
+- [Skills I Use Most](#skills-i-use-most)
+  - [Tier 1: Top 10](#tier-1-top-10)
+  - [Tier 2: The Next 25](#tier-2-the-next-25)
+  - [Superpowers Plugin](#superpowers-plugin)
+  - [NeuralVault (private)](#neuralvault-private)
+- [Other Stuff](#other-stuff)
+  - [MCP Servers](#mcp-servers)
+  - [Plugins](#plugins)
+  - [Hooks](#hooks)
+  - [Custom Slash Commands](#custom-slash-commands)
+  - [CLI Tools](#cli-tools)
+  - [Standing Conventions](#standing-conventions)
+- [How I Run Claude](#how-i-run-claude)
+- [How to Install](#how-to-install)
+- [Part of a Larger Collection](#part-of-a-larger-collection)
+- [License](#license)
+
 ## Most Useful Skill
 
 ### `braindump`
